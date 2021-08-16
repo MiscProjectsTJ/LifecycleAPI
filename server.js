@@ -8,17 +8,10 @@ app.use(bodyParser.urlencoded());
 
 app.use(bodyParser.json());
 
-const sayHi = (req, res) => {
-    res.send("Hello!");
-};
-app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "index.html"));
-});
-
 app.post("/add", (req, res) => {
-    const {a, b} = req.body;
+    const {val} = req.body;
     res.send({
-        result: parseInt(a) + parseInt(b)
+        result: val
     });
 });
 
