@@ -1,17 +1,23 @@
-const express = require('express');
+const path = require("path");
+const express = require("express");
+const bodyParser = require("body-parser")
+
 const app = express();
 
 app.get('/', (req, res) =>{
-   res.send('Home Page')
+   res.send('Welcome to the api')
 })
 
-app.get('/api', (req, res) =>{
-    res.send('API Page')
-})
+app.use(bodyParser.urlencoded());
 
-app.get('/users', (req, res) =>{
-    res.send('Users Page')
-})
+app.use(bodyParser.json());
+
+app.post("/add", (req, res) => {
+    const {val} = req.body;
+    res.send({
+        result: val
+    });
+});
 
 
 let PORT = process.env.PORT || 3000;
