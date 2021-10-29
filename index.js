@@ -13,6 +13,7 @@ app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
 
 app.post("/add", (req, res) => {
+    console.log(req.body)
     const {val} = req.body;
     res.send({
         result: val
