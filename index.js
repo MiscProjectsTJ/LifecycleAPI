@@ -46,12 +46,12 @@ app.post("/add", (req, res) => {
     .then((predictions) => {
         console.log("got predictions");
         console.log(predictions);
-        console.log(JSON.stringify(predictions, null, 2));
+        console.log(JSON.stringify(predictions, null, 2));    
+       res.send({
+        result: JSON.stringify(predictions, null, 2)
+      });
     });
-    const result = "plastic bottle";
-    res.send({
-        result: result
-    });
+
 });
 
 
